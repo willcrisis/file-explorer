@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled'
 import Title from '../common/Title/Title';
 import File from './File';
+import Paginator from './Paginator';
 
 const Container = styled.div`
     flex: 3;
@@ -25,10 +26,13 @@ const FileList = ({ data: { total_files, files }, selectedTag }) => (
         </Title>
         <List>
             {files.map((file) => (
-                <File file={file} />
+                <File key={file.id} file={file} />
             ))}
         </List>
-        <div>Paginator: {total_files}</div>
+        <Paginator 
+            total={total_files} 
+            onPaginate={(page) => console.log(`Changed to page ${page}`)}
+        />
     </Container>
 );
 

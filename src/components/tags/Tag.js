@@ -15,7 +15,7 @@ const Tag = ({ tag: { tag, files } }) => (
 Tag.propTypes = {
     tag: PropTypes.shape({
         tag: PropTypes.string.isRequired,
-        files: PropTypes.number.isRequired,
+        files: PropTypes.string.isRequired,
     }).isRequired,
 };
 

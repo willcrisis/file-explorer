@@ -7,7 +7,7 @@ const Title = styled.h1`
 `;
 
 Title.propTypes = {
-    children: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
 };
 
 export default Title;
