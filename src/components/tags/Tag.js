@@ -6,9 +6,15 @@ const Container = styled.div`
     padding-bottom: 5px;
 `;
 
-const Tag = ({ tag: { tag, files } }) => (
+const Link = styled.span`
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+`;
+
+const Tag = ({ tag: { tag, files }, onClick }) => (
     <Container>
-        <a href={`#${tag}`}>{tag}</a> ({files})
+        <Link onClick={() => onClick(tag)}>{tag}</Link> ({files})
     </Container>
 );
 
@@ -17,6 +23,7 @@ Tag.propTypes = {
         tag: PropTypes.string.isRequired,
         files: PropTypes.string.isRequired,
     }).isRequired,
+    onClick: PropTypes.func.isRequired,
 };
 
 export default Tag;

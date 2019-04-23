@@ -9,11 +9,15 @@ const Container = styled.div`
     padding: 10px;
 `;
 
-const TagList = ({ data }) => (
+const TagList = ({ data, onSelect }) => (
     <Container>
         <Title>Tags</Title>
         {data.map((tag) => (
-            <Tag key={tag.tag} tag={tag} />
+            <Tag 
+                key={tag.tag} 
+                tag={tag}
+                onClick={onSelect}
+            />
         ))}
     </Container>
 );
@@ -25,6 +29,7 @@ TagList.propTypes = {
             files: PropTypes.string.isRequired,
         })
     ).isRequired,
+    onSelect: PropTypes.func.isRequired,
 };
 
 export default TagList;
