@@ -13,7 +13,7 @@ const TagList = ({ data }) => (
     <Container>
         <Title>Tags</Title>
         {data.map((tag) => (
-            <Tag tag={tag} />
+            <Tag key={tag.tag} tag={tag} />
         ))}
     </Container>
 );
