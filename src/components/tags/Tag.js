@@ -11,6 +11,7 @@ const Link = styled.span`
     text-decoration: underline;
     cursor: pointer;
 `;
+Link.displayName = 'Link';
 
 const Tag = ({ tag: { tag, files }, onClick }) => (
     <Container>

@@ -14,6 +14,7 @@ const List = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
 `;
+List.displayName = 'List';
 
 const FileList = ({ data: { total_files, files }, selectedTag, currentPage, onPaginate }) => (
     <Container>

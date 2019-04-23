@@ -15,6 +15,7 @@ const Image = styled.img`
     width: 30px;
     margin-right: 10px;
 `;
+Image.displayName = 'Image';
 
 const Link = styled.a`
     white-space: nowrap;
@@ -22,6 +23,7 @@ const Link = styled.a`
     text-overflow: ellipsis;
     width: 100px;
 `;
+Link.displayName = 'Link';
 
 const File = ({ file: { id, name } }) => (
     <Container>

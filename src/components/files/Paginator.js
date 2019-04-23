@@ -17,6 +17,7 @@ const Link = styled.span`
         cursor: pointer;
     `}
 `;
+Link.displayName = 'Link';
 
 Link.propTypes = {
     isNumber: PropTypes.bool,
