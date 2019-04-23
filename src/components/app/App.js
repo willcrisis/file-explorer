@@ -34,9 +34,14 @@ const Container = styled.div`
   flex-direction: row;
 `;
 
+const handleTagSelection = (tag, setSelectedTag, setCurrentPage) => {
+  setSelectedTag(tag);
+  setCurrentPage(1);
+};
 
 const App = () => {
   const [selectedTag, setSelectedTag] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
   return (
     <AppContainer>
@@ -44,11 +49,13 @@ const App = () => {
       <Container>
         <TagList
           data={tags}
-          onSelect={(tag) => setSelectedTag(tag)}
+          onSelect={(tag) => handleTagSelection(tag, setSelectedTag, setCurrentPage)}
         />
         <FileList
           data={files}
           selectedTag={selectedTag}
+          currentPage={currentPage}
+          onPaginate={(page) => setCurrentPage(page)}
         />
       </Container>
     </AppContainer>

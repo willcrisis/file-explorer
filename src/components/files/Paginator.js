@@ -56,14 +56,8 @@ const buildPageNumbers = (lastPage, currentPage) => {
     return pages;
 };
 
-const handlePageChange = (page, setCurrentPage, onPaginate) => {
-    setCurrentPage(page);
-    onPaginate(page);
-}
-
-const Paginator = ({ total, onPaginate }) => {
+const Paginator = ({ total, onPaginate, currentPage }) => {
     const [pages, setPages] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
         const lastPage = Math.ceil(total / ITEMS_PER_PAGE);
@@ -77,7 +71,7 @@ const Paginator = ({ total, onPaginate }) => {
                     key={page}
                     isNumber={typeof page === 'number'}
                     isCurrentPage={page === currentPage}
-                    onClick={() => handlePageChange(page, setCurrentPage, onPaginate)}
+                    onClick={() => onPaginate(page)}
                 >
                     {page}
                 </Link>
@@ -88,6 +82,7 @@ const Paginator = ({ total, onPaginate }) => {
 
 Paginator.propTypes = {
     total: PropTypes.number.isRequired,
+    currentPage: PropTypes.number.isRequired,
     onPaginate: PropTypes.func.isRequired,
 };
 

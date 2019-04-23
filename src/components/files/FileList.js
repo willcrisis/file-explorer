@@ -15,7 +15,7 @@ const List = styled.div`
     flex-wrap: wrap;
 `;
 
-const FileList = ({ data: { total_files, files }, selectedTag }) => (
+const FileList = ({ data: { total_files, files }, selectedTag, currentPage, onPaginate }) => (
     <Container>
         <Title>
             Search Results - {
@@ -30,8 +30,9 @@ const FileList = ({ data: { total_files, files }, selectedTag }) => (
             ))}
         </List>
         <Paginator 
-            total={total_files} 
-            onPaginate={(page) => console.log(`Changed to page ${page}`)}
+            total={total_files}
+            currentPage={currentPage}
+            onPaginate={onPaginate}
         />
     </Container>
 );
@@ -46,6 +47,8 @@ FileList.propTypes = {
             })
         ),
     }),
+    currentPage: PropTypes.number.isRequired,
+    onPaginate: PropTypes.func.isRequired,
     selectedTag: PropTypes.string,
 };
 
