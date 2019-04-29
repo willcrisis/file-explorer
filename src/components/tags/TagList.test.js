@@ -17,7 +17,7 @@ const onSelect = jest.fn();
 describe('Tag list', () => {
     function setUp(overrides = {}) {
         const wrapper = mount((
-            <TagList 
+            <TagList
                 data={defaultData}
                 onSelect={onSelect}
                 {...overrides}
@@ -28,7 +28,9 @@ describe('Tag list', () => {
 
         const tags = wrapper.find(Tag);
 
-        return { wrapper, title, tags };
+        const expandButton = wrapper.find('ExpandButton');
+
+        return { wrapper, title, tags, expandButton };
     }
 
     it('should render the correct title', () => {
@@ -42,5 +44,13 @@ describe('Tag list', () => {
 
         expect(tags.exists()).toBe(true);
         expect(tags.length).toBe(2);
-    })
-})
+    });
+
+    describe('Expand button', () => {
+        it('should render the Expand button', () => {
+            const { expandButton } = setUp();
+
+            expect(expandButton.exists()).toBe(true);
+        });
+    });
+});
